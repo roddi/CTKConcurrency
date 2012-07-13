@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
 #include <dispatch/dispatch.h>
-#import "CTKLockingTransaction.h"
-#import "CTKReference.h"
-#import "CTKPersistentHashMap.h"
 #include <libkern/OSAtomic.h>
-#import "CTKUtils.h"
 #include <stdlib.h>
+#include <CTKConcurrency/CTKConcurrency.h>
 
 @interface MockPersistentCollection : NSObject{
 	NSArray *array;

@@ -11,6 +11,17 @@
 #include <mach/mach.h>
 #include <mach/mach_time.h>
 
+NSInteger CTKCurrentThreadNumber()
+{
+    NSString *threadString = [NSString stringWithFormat:@"%@", [NSThread currentThread]];
+    NSRange	numRange = [threadString rangeOfString:@"num = "];
+    NSUInteger numLength = [threadString length] - numRange.location - numRange.length;
+    numRange.location = numRange.location + numRange.length;
+    numRange.length   = numLength - 1;
+    threadString = [threadString substringWithRange:numRange];
+    return [threadString integerValue];
+}
+
 
 @implementation CTKUtils
 

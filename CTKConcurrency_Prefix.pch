@@ -6,37 +6,9 @@
     #import <Foundation/Foundation.h>
 	//#import <Cocoa/Cocoa.h>
 
+#import "CTKLog.h"
+
 #endif
 
-
-
-static NSInteger CTKCurrentThreadNumber()
-{
-    NSString *threadString = [NSString stringWithFormat:@"%@", [NSThread currentThread]];
-    NSRange	numRange = [threadString rangeOfString:@"num = "];
-    NSUInteger numLength = [threadString length] - numRange.location - numRange.length;
-    numRange.location = numRange.location + numRange.length;
-    numRange.length   = numLength - 1;
-    threadString = [threadString substringWithRange:numRange];
-    return [threadString integerValue];
-}
-
-
-
-#ifdef DEBUG
-#	define CTKLog(fmt, ...) NSLog((@"[# %U] %s (%d) " fmt), (unsigned int)CTKCurrentThreadNumber(), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#	define CTKLog(fmt, ...)
-#endif
-
-#ifdef DEBUG
-#	define CTKConditionalLog(condition, fmt, ...) if(condition) NSLog((@"[# %U] %s (%d) " fmt), (unsigned int)CTKCurrentThreadNumber(), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#	define CTKConditionalLog(condition, fmt, ...)
-#endif
-
-#define CTKWarningLog(fmt, ...)  NSLog((@"<Warning>: [# %d] %s (%d) " fmt), (int)CTKCurrentThreadNumber(), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-
-#define CTKErrorLog(fmt, ...)  NSLog((@"<Error>: [# %d] %s (%d) " fmt), (int)CTKCurrentThreadNumber(), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 

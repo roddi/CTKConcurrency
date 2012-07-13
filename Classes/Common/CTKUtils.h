@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+NSInteger CTKCurrentThreadNumber(void);
+
+
 
 @interface CTKUtils : NSObject {
 
