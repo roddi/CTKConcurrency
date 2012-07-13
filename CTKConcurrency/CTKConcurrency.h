@@ -11,6 +11,7 @@
 #import "CTKReference.h"
 #import "CTKUtils.h"
 #import "CTKLockingTransaction.h"
+#import "CTKPersistentHashMap.h"
 
 /*
 @interface CTKConcurrency : NSObject
