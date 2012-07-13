@@ -136,10 +136,10 @@ int main (int argc, const char * argv[]) {
 			NSLog(@"Error, dispatch did not work or timeout");
 		else {
 			collection = [ref dereference];
-			NSLog(@"Processed %U operations asynchronously in %U ms. Count is %U.",
-				  maxTransactions, 
-				  [CTKUtils currentTimeInMillis] - t0,
-				  [collection count]);
+			NSLog(@"Processed %d operations asynchronously in %d ms. Count is %d.",
+				  (int)maxTransactions, 
+				  (int)([CTKUtils currentTimeInMillis] - t0),
+				  (int)[collection count]);
 			
 		}
 		
@@ -147,7 +147,7 @@ int main (int argc, const char * argv[]) {
 		
 	}
 	
-	NSLog(@"Writers only (count should be %U)", maxTransactions);
+	NSLog(@"Writers only (count should be %d)", (int)maxTransactions);
 	// Writers
 	for (int i = 0; i < 10; i++) 
 	{
@@ -201,10 +201,10 @@ int main (int argc, const char * argv[]) {
 			NSLog(@"Error, dispatch did not work or timeout");
 		else {
 			collection = [ref dereference];
-			NSLog(@"Processed %U operations asynchronously in %U ms. Count is %U.",
-				  maxTransactions, 
-				  [CTKUtils currentTimeInMillis] - t0,
-				  [collection count]);
+			NSLog(@"Processed %d operations asynchronously in %d ms. Count is %d.",
+				  (int)maxTransactions, 
+				  (int)([CTKUtils currentTimeInMillis] - t0),
+				  (int)[collection count]);
 			
 		}
 		

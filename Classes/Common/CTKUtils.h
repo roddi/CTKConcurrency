@@ -13,7 +13,7 @@
 
 }
 
-- (BOOL) isObject:(id)anObject equivalentToObject:(id)anotherObject;
+//- (BOOL) isObject:(id)anObject equivalentToObject:(id)anotherObject;
 
 + (NSUInteger) currentTimeInMillis;
 

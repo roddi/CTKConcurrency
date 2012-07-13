@@ -90,6 +90,13 @@ void CTKPthreadTransactionDestructor(void *txn)
 
 #pragma mark -
 
+@interface CTKReference (Private)
+- (NSUInteger) private_historyCount;
+@end
+
+
+#pragma mark -
+
 @interface CTKLockingTransaction (Private)
 
 #pragma mark Class methods
@@ -284,7 +291,7 @@ void CTKPthreadTransactionDestructor(void *txn)
 	
 	@try {
 		
-		for(retries; !done && retries < self.retryLimit; retries++) {
+		for(retries=0; !done && retries < self.retryLimit; retries++) {
 			done = NO;
 			
 			//CTKConditionalLog(retries == self.retryLimit / 2, @"Retries %U", retries);
